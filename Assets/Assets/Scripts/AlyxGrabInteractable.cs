@@ -8,7 +8,8 @@ public class AlyxGrabInteractable : XRGrabInteractable
     [Header("Alyx Mechanics")]
     public float minVel = 2f;
     public float jumpAngle = 60f;
-    public float nearThreshold = 1f;
+    public float nearThreshold = 0.5f;
+    public float maxSelectVel = 4f; 
 
     private NearFarInteractor nearFarInteractor;
     private Vector3 previousPos;
@@ -21,57 +22,58 @@ public class AlyxGrabInteractable : XRGrabInteractable
         rbInteractable = GetComponent<Rigidbody>();
     }
 
+    // FILTRO DE VELOCIDAD
+    public override bool IsSelectableBy(IXRSelectInteractor interactor)
+    {
+        bool canSelect = base.IsSelectableBy(interactor);
+
+        if (canSelect)
+        {
+            float distance = Vector3.Distance(interactor.transform.position, transform.position);
+            
+            if (distance > nearThreshold && rbInteractable.velocity.magnitude > maxSelectVel)
+            {
+                return false;
+            }
+        }
+        return canSelect;
+    }
+
     private void Update()
     {
-      
         if (canJump && isSelected && nearFarInteractor != null)
         {
-            
-            Vector3 handVel = (nearFarInteractor.transform.position - previousPos) / Time.deltaTime;
-            previousPos = nearFarInteractor.transform.position;
+            Vector3 handPos = nearFarInteractor.transform.position;
+            Vector3 handVel = (handPos - previousPos) / Time.deltaTime;
+            previousPos = handPos;
 
-            
             if (handVel.magnitude > minVel)
             {
-                PerformAlyxJump();
+                ExecuteLaunch();
             }
         }
     }
 
-    private void PerformAlyxJump()
+    private void ExecuteLaunch()
     {
-        if (canJump && isSelected && firstInteractorSelecting is NearFarInteractor)
+        Vector3 launchVelocity = ComputeVelocity();
 
-        {
+        Drop(); 
 
-            Vector3 vel = (nearFarInteractor.transform.position - previousPos) / Time.deltaTime;
+        rbInteractable.velocity = Vector3.zero;
+        rbInteractable.angularVelocity = Vector3.zero;
+        rbInteractable.AddForce(launchVelocity, ForceMode.VelocityChange);
 
-            previousPos = nearFarInteractor.transform.position;
-
-
-
-            if (vel.magnitude > minVel)
-
-            {
-
-                Drop();
-
-                rbInteractable.velocity = ComputeVelocity(); 
-
-                canJump = false;
-
-            }
-
-        }
+        canJump = false;
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         float distance = Vector3.Distance(args.interactorObject.transform.position, transform.position);
 
-  
         if (distance > nearThreshold)
         {
+            // MODO RAYO
             trackPosition = false;
             trackRotation = false;
             throwOnDetach = false;
@@ -79,37 +81,47 @@ public class AlyxGrabInteractable : XRGrabInteractable
             nearFarInteractor = args.interactorObject as NearFarInteractor;
             previousPos = nearFarInteractor.transform.position;
             canJump = true;
+
+            
+            base.OnSelectEntered(args);
+
+            // DESBLOQUEO CINEMÁTICO
+            rbInteractable.isKinematic = false;
+            rbInteractable.useGravity = true;
         }
         else
         {
+            // MODO DIRECTO
             trackPosition = true;
             trackRotation = true;
             throwOnDetach = true;
             canJump = false;
-        }
 
-        base.OnSelectEntered(args);
+            base.OnSelectEntered(args);
+        }
     }
 
     public Vector3 ComputeVelocity()
     {
-        Vector3 diff = nearFarInteractor.transform.position - transform.position;
+        if (nearFarInteractor == null) return Vector3.up * 5f;
+
+        Vector3 target = nearFarInteractor.transform.position;
+        Vector3 origin = transform.position;
+
+        Vector3 diff = target - origin;
         Vector3 diffXZ = new Vector3(diff.x, 0, diff.z);
-        float diffXZLength = diffXZ.magnitude;
-        float diffYLength = diff.y;
+        float x = diffXZ.magnitude;
+        float y = diff.y;
 
-        float angleInRadian = jumpAngle * Mathf.Deg2Rad;
+        float angleRad = jumpAngle * Mathf.Deg2Rad;
+        float g = Mathf.Abs(Physics.gravity.y);
 
-       
-        float jumpSpeed = Mathf.Sqrt(-Physics.gravity.y * Mathf.Pow(diffXZLength, 2) /
-            (2 * Mathf.Cos(angleInRadian) * Mathf.Cos(angleInRadian) *
-            (diffXZLength * Mathf.Tan(angleInRadian) - diffYLength)));
+        float speedSq = (g * x * x) / (2 * Mathf.Cos(angleRad) * Mathf.Cos(angleRad) * (x * Mathf.Tan(angleRad) - y));
 
-        if (float.IsNaN(jumpSpeed)) jumpSpeed = 5f; // Salvaguarda si el cálculo falla
+        if (speedSq <= 0 || float.IsNaN(speedSq))
+            return (diff.normalized + Vector3.up).normalized * 6f;
 
-        Vector3 jumpVelocity = diffXZ.normalized * jumpSpeed * Mathf.Cos(angleInRadian)
-            + Vector3.up * jumpSpeed * Mathf.Sin(angleInRadian);
-
-        return jumpVelocity;
+        float speed = Mathf.Sqrt(speedSq);
+        return diffXZ.normalized * speed * Mathf.Cos(angleRad) + Vector3.up * speed * Mathf.Sin(angleRad);
     }
 }
