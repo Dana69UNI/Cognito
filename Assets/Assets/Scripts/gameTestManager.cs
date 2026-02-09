@@ -61,7 +61,7 @@ public class gameTestManager : MonoBehaviour
     {
         if (playerMoved&&!ladderClimbed)
         {
-            if (player.transform.position.y >= 4.3f)
+            if (player.transform.position.y >= 3.3f)
             {
                 tutorialDialogue.CallDialogue(5, 0);
                 ladderClimbed = true;
@@ -100,9 +100,9 @@ public class gameTestManager : MonoBehaviour
 
     private void checkCubeThrow()
     {
-        if(tutorialCubeGO != null && tutorialCubeRB != null)
+        if(tutorialCubeGO != null && tutorialCubeRB != null && !cubeThrown)
         {
-            if(tutorialCubeRB.velocity.magnitude >= 6f)
+            if(tutorialCubeRB.velocity.magnitude >= 4f)
             {
                 tutorialDialogue.CallDialogue(3, 0);
                 cubeThrown = true;
