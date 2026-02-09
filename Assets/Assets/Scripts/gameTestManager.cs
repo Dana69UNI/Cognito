@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class gameTestManager : MonoBehaviour
@@ -8,29 +9,82 @@ public class gameTestManager : MonoBehaviour
     public GameObject tutorialCube;
     public TextDialogueHandler tutorialDialogue;
     public GameObject player;
+    public Transform TeleDialogue; 
+    public Transform targetPosition;
+    public Transform targetPosition2;
 
     private int indexText;
     private bool cubeHasSpawned;
     private bool cubeThrown;
     private bool playerMoved;
+    private bool ladderClimbed;
     private GameObject tutorialCubeGO;
     private Rigidbody tutorialCubeRB;
-    
+    private float lerpDuration = 5f;
+
 
     void Start()
     {
         
         tutorialDialogue.CallDialogue(0, 3);
+        StartCoroutine(TiempoLectura());
     }
 
-   
+    IEnumerator TiempoLectura()
+    {
+        for (int i = 0; i <=1; i++)
+        {
+            if(i == 0)
+            {
+                yield return new WaitForSeconds(15f);
+                tutorialDialogue.NextLine();
+            }
+            else
+            {
+                yield return new WaitForSeconds(6f);
+                tutorialDialogue.NextLine();
+            }
+               
+        }
+       
+    }
+
     void FixedUpdate()
     {
         checkIndex();
         checkCubeThrow();
         checkPlayerMovement();
+        checkLadderClimb();
     }
 
+    private void checkLadderClimb()
+    {
+        if (playerMoved&&!ladderClimbed)
+        {
+            if (player.transform.position.y >= 4.3f)
+            {
+                tutorialDialogue.CallDialogue(5, 0);
+                ladderClimbed = true;
+                StartCoroutine(MoveDialogueLerp(targetPosition2));
+            }
+        }
+    }
+    IEnumerator MoveDialogueLerp(Transform destination)
+    {
+        float timeElapsed = 0;
+        Vector3 startPosition = TeleDialogue.position;
+
+        while (timeElapsed < lerpDuration)
+        {
+            
+            TeleDialogue.position = Vector3.Lerp(startPosition, destination.position, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null; 
+        }
+
+        
+        TeleDialogue.position = destination.position;
+    }
     private void checkPlayerMovement()
     {
         if(cubeThrown&&!playerMoved)
@@ -39,6 +93,7 @@ public class gameTestManager : MonoBehaviour
             {
                 tutorialDialogue.CallDialogue(4, 0);
                 playerMoved = true;
+                StartCoroutine(MoveDialogueLerp(targetPosition));
             }
         }
     }
