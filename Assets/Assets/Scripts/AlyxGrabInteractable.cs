@@ -9,7 +9,11 @@ public class AlyxGrabInteractable : XRGrabInteractable
     public float minVel = 2f;
     public float jumpAngle = 60f;
     public float nearThreshold = 0.5f;
-    public float maxSelectVel = 4f; 
+    public float maxSelectVel = 4f;
+
+    [Header("Custom Gravity Settings")]
+    public Vector3 customUpDirection = Vector3.up;
+    public float customGravityMagnitude = 9.81f;
 
     private NearFarInteractor nearFarInteractor;
     private Vector3 previousPos;
@@ -22,15 +26,21 @@ public class AlyxGrabInteractable : XRGrabInteractable
         rbInteractable = GetComponent<Rigidbody>();
     }
 
-    // FILTRO DE VELOCIDAD
+    /// <summary>
+    /// Método para que tus triggers actualicen la dirección del salto.
+    /// </summary>
+    public void SetGravityContext(Vector3 upDir, float magnitude)
+    {
+        customUpDirection = upDir.normalized;
+        customGravityMagnitude = magnitude;
+    }
+
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
     {
         bool canSelect = base.IsSelectableBy(interactor);
-
         if (canSelect)
         {
             float distance = Vector3.Distance(interactor.transform.position, transform.position);
-            
             if (distance > nearThreshold && rbInteractable.velocity.magnitude > maxSelectVel)
             {
                 return false;
@@ -57,8 +67,7 @@ public class AlyxGrabInteractable : XRGrabInteractable
     private void ExecuteLaunch()
     {
         Vector3 launchVelocity = ComputeVelocity();
-
-        Drop(); 
+        Drop();
 
         rbInteractable.velocity = Vector3.zero;
         rbInteractable.angularVelocity = Vector3.zero;
@@ -73,7 +82,6 @@ public class AlyxGrabInteractable : XRGrabInteractable
 
         if (distance > nearThreshold)
         {
-            // MODO RAYO
             trackPosition = false;
             trackRotation = false;
             throwOnDetach = false;
@@ -82,21 +90,15 @@ public class AlyxGrabInteractable : XRGrabInteractable
             previousPos = nearFarInteractor.transform.position;
             canJump = true;
 
-            
             base.OnSelectEntered(args);
-
-            // DESBLOQUEO CINEMÁTICO
             rbInteractable.isKinematic = false;
-            rbInteractable.useGravity = true;
         }
         else
         {
-            // MODO DIRECTO
             trackPosition = true;
             trackRotation = true;
             throwOnDetach = true;
             canJump = false;
-
             base.OnSelectEntered(args);
         }
     }
@@ -107,21 +109,36 @@ public class AlyxGrabInteractable : XRGrabInteractable
 
         Vector3 target = nearFarInteractor.transform.position;
         Vector3 origin = transform.position;
-
         Vector3 diff = target - origin;
-        Vector3 diffXZ = new Vector3(diff.x, 0, diff.z);
-        float x = diffXZ.magnitude;
-        float y = diff.y;
+
+        Vector3 currentUp;
+        float g;
+
+        if (rbInteractable.useGravity)
+        {
+            
+            currentUp = Vector3.up;
+            g = Physics.gravity.magnitude;
+        }
+        else
+        {
+            currentUp = customUpDirection.normalized;
+            g = customGravityMagnitude;
+        }
+     
+        float y = Vector3.Dot(diff, currentUp);
+        Vector3 diffPlanar = diff - (currentUp * y);
+        float x = diffPlanar.magnitude;
 
         float angleRad = jumpAngle * Mathf.Deg2Rad;
-        float g = Mathf.Abs(Physics.gravity.y);
 
         float speedSq = (g * x * x) / (2 * Mathf.Cos(angleRad) * Mathf.Cos(angleRad) * (x * Mathf.Tan(angleRad) - y));
 
         if (speedSq <= 0 || float.IsNaN(speedSq))
-            return (diff.normalized + Vector3.up).normalized * 6f;
+            return (diff.normalized + currentUp).normalized * 6f;
 
         float speed = Mathf.Sqrt(speedSq);
-        return diffXZ.normalized * speed * Mathf.Cos(angleRad) + Vector3.up * speed * Mathf.Sin(angleRad);
+
+        return diffPlanar.normalized * speed * Mathf.Cos(angleRad) + currentUp * speed * Mathf.Sin(angleRad);
     }
 }
