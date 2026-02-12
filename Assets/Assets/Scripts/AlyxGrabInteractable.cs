@@ -78,6 +78,7 @@ public class AlyxGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+        rbInteractable.WakeUp();
         float distance = Vector3.Distance(args.interactorObject.transform.position, transform.position);
 
         if (distance > nearThreshold)
@@ -116,29 +117,36 @@ public class AlyxGrabInteractable : XRGrabInteractable
 
         if (rbInteractable.useGravity)
         {
-            
             currentUp = Vector3.up;
             g = Physics.gravity.magnitude;
         }
         else
         {
-            currentUp = customUpDirection.normalized;
+            currentUp = (customUpDirection.sqrMagnitude < 0.01f) ? Vector3.up : customUpDirection.normalized;
             g = customGravityMagnitude;
         }
-     
+
         float y = Vector3.Dot(diff, currentUp);
+
         Vector3 diffPlanar = diff - (currentUp * y);
         float x = diffPlanar.magnitude;
 
+        if (x < 0.1f) return diff.normalized * 5f;
+
         float angleRad = jumpAngle * Mathf.Deg2Rad;
 
-        float speedSq = (g * x * x) / (2 * Mathf.Cos(angleRad) * Mathf.Cos(angleRad) * (x * Mathf.Tan(angleRad) - y));
+        if (g < 0.01f) g = 9.81f;
 
-        if (speedSq <= 0 || float.IsNaN(speedSq))
-            return (diff.normalized + currentUp).normalized * 6f;
+        float cosTheta = Mathf.Cos(angleRad);
+        float speedSq = (g * x * x) / (2 * cosTheta * cosTheta * (x * Mathf.Tan(angleRad) - y));
+
+        if (speedSq <= 0 || float.IsNaN(speedSq) || float.IsInfinity(speedSq))
+        {
+            return (diff.normalized + currentUp * 0.5f).normalized * 6f;
+        }
 
         float speed = Mathf.Sqrt(speedSq);
-
-        return diffPlanar.normalized * speed * Mathf.Cos(angleRad) + currentUp * speed * Mathf.Sin(angleRad);
+        Vector3 velocity = diffPlanar.normalized * speed * Mathf.Cos(angleRad) + currentUp * speed * Mathf.Sin(angleRad);
+        return Vector3.ClampMagnitude(velocity, 25f);
     }
 }

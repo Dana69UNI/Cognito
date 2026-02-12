@@ -46,7 +46,15 @@ public class GravityAlter : MonoBehaviour
     {
         if (other.attachedRigidbody != null)
         {
-            other.attachedRigidbody.useGravity = true;
+            Rigidbody rb = other.attachedRigidbody;
+            rb.useGravity = true;
+
+           
+            if (other.TryGetComponent<AlyxGrabInteractable>(out var alyx))
+            {
+                alyx.customUpDirection = Vector3.up;
+                alyx.customGravityMagnitude = Physics.gravity.magnitude;
+            }
         }
     }
 }
