@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameTestManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class gameTestManager : MonoBehaviour
     public Transform TeleDialogue; 
     public Transform targetPosition;
     public Transform targetPosition2;
+    public Transform targetPosition3;
+    public checkPoint checkpointFinal;
+    
 
     private int indexText;
     private bool cubeHasSpawned;
@@ -55,6 +59,15 @@ public class gameTestManager : MonoBehaviour
         checkCubeThrow();
         checkPlayerMovement();
         checkLadderClimb();
+        checkCheckPoint();
+    }
+
+    private void checkCheckPoint()
+    {
+        if(checkpointFinal.playerArrived)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     private void checkLadderClimb()
@@ -83,6 +96,33 @@ public class gameTestManager : MonoBehaviour
         }
 
         
+        TeleDialogue.position = destination.position;
+        if(destination == targetPosition2)
+        {
+            StartCoroutine(WaitFor5s());
+        }
+        
+    }
+
+    IEnumerator WaitFor5s()
+    {
+        yield return new WaitForSeconds(5);
+        StartCoroutine(Final(targetPosition3));
+    }
+    IEnumerator Final(Transform destination)
+    {
+        float timeElapsed = 0;
+        Vector3 startPosition = TeleDialogue.position;
+
+        while (timeElapsed < lerpDuration)
+        {
+
+            TeleDialogue.position = Vector3.Lerp(startPosition, destination.position, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+
         TeleDialogue.position = destination.position;
     }
     private void checkPlayerMovement()
