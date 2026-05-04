@@ -34,10 +34,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Throwable
+  - OBSTACULO
+  - Cabeza
+  - Enemy
   - Pushable
   - Character Collider
   - Character Controller
