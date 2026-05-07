@@ -34,7 +34,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 if (m_GripInput != null)
                 {
                     var gripVal = m_GripInput.ReadValue();
-                    Debug.Log(gripVal);
+                 
                     handAnim.SetFloat("Trigger", gripVal);
                 }
         }

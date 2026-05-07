@@ -1,18 +1,13 @@
-Shader "Custom/HoverURP"
+Shader "Custom/HoverStaticSubtle_URP"
 {
     Properties
     {
         _BaseColor("Color de Fondo", Color) = (0.5, 0.5, 0.5, 1)
         _MainTex("Textura (Opcional)", 2D) = "white" {}
         
-        [Header(Configuracion de Puntos)]
-        _DotColor("Color de los Puntos", Color) = (1, 0, 0, 1)
-        _DotSize("Tamaño Puntos", Range(0.01, 0.5)) = 0.1
-        _Density("Densidad", Range(1, 100)) = 20
-        
-        [Header(Efecto Pulso)]
-        _PulseSpeed("Velocidad Latido", Range(0, 10)) = 3.0
-        _MaxEmission("Brillo Máximo", Range(0, 5)) = 0.7
+        [Header(Estatica Sutil)]
+        _StaticColor("Color de la Estática", Color) = (1, 1, 1, 1)
+        _Intensity("Intensidad (Sugerido 0.2)", Range(0, 1)) = 0.2
     }
 
     SubShader
@@ -45,6 +40,7 @@ Shader "Custom/HoverURP"
             struct Varyings
             {
                 float4 positionCS   : SV_POSITION;
+                float3 positionWS   : TEXCOORD3;
                 float2 uv           : TEXCOORD0;
                 float3 normalWS     : TEXCOORD1;
                 float4 shadowCoord  : TEXCOORD2;
@@ -52,21 +48,25 @@ Shader "Custom/HoverURP"
 
             CBUFFER_START(UnityPerMaterial)
                 float4 _BaseColor;
-                float4 _DotColor;
-                float _DotSize;
-                float _Density;
-                float _PulseSpeed;
-                float _MaxEmission;
+                float4 _StaticColor;
+                float _Intensity;
                 float4 _MainTex_ST;
             CBUFFER_END
 
             sampler2D _MainTex;
+
+            float hash(float3 p) {
+                p = frac(p * 0.3183099 + 0.1);
+                p *= 17.0;
+                return frac(p.x * p.y * p.z * (p.x + p.y + p.z));
+            }
 
             Varyings vert(Attributes IN)
             {
                 Varyings OUT;
                 VertexPositionInputs positionInputs = GetVertexPositionInputs(IN.positionOS.xyz);
                 OUT.positionCS = positionInputs.positionCS;
+                OUT.positionWS = positionInputs.positionWS;
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
                 OUT.normalWS = TransformObjectToWorldNormal(IN.normalOS);
                 OUT.shadowCoord = GetShadowCoord(positionInputs);
@@ -75,7 +75,6 @@ Shader "Custom/HoverURP"
 
             half4 frag(Varyings IN) : SV_Target
             {
-               
                 half4 texColor = tex2D(_MainTex, IN.uv);
                 half3 baseAlbedo = texColor.rgb * _BaseColor.rgb;
                 
@@ -88,21 +87,10 @@ Shader "Custom/HoverURP"
                 half3 diffuse = baseAlbedo * (mainLight.color * (NdotL * shadow));
                 half3 finalSurfaceColor = diffuse + ambient;
 
-             
-                float2 st = frac(IN.uv * _Density);
-                float dist = distance(st, float2(0.5, 0.5));
-                float dotMask = 1.0 - smoothstep(_DotSize, _DotSize + 0.01, dist);
+                float3 noisePos = floor(IN.positionWS * 100000.0 + (_Time.y * 70.0));
+                float noise = hash(noisePos);
 
-              
-                float pulse = sin(_Time.y * _PulseSpeed) * 0.5 + 0.5;
-               
-                float effectFactor = dotMask * pulse;
-
-               
-                half3 emissiveDot = _DotColor.rgb * _MaxEmission;
-                
-             
-                half3 finalColor = lerp(finalSurfaceColor, emissiveDot, effectFactor);
+                half3 finalColor = lerp(finalSurfaceColor, _StaticColor.rgb, noise * _Intensity);
 
                 return half4(finalColor, 1.0);
             }
