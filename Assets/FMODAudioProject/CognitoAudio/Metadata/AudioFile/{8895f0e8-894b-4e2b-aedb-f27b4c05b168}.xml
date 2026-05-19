@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8895f0e8-894b-4e2b-aedb-f27b4c05b168}">
+		<property name="assetPath">
+			<value>MemoriesCannedInForgetfulness.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>77</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8c0bf5d5-b918-4039-838b-3eb6aef3ea4d}</destination>
+		</relationship>
+	</object>
+</objects>

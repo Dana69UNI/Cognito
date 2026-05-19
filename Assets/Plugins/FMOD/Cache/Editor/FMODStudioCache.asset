@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5938826806424407926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MemoriesCannedInForgetfulness
+  m_EditorClassIdentifier: 
+  Path: event:/MemoriesCannedInForgetfulness
+  Guid:
+    Data1: -950644624
+    Data2: 1089099534
+    Data3: 276562594
+    Data4: -1873581443
+  Banks:
+  - {fileID: -2313332785779283188}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 2.4
+  Length: 77000
+--- !u!114 &-2313332785779283188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Musica+SFX Ambiental.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Musica+SFX Ambiental.bank
+  Name: Musica+SFX Ambiental
+  StudioPath: bank:/Musica+SFX Ambiental
+  lastModified: 639148280735123430
+  FileSizes:
+  - Name: Desktop
+    Value: 887488
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 8282749924547036397}
+  - {fileID: 648608799203661292}
+  - {fileID: -2313332785779283188}
+  EditorEvents:
+  - {fileID: -5938826806424407926}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 648608799203661292}
+  StringsBanks:
+  - {fileID: 8282749924547036397}
+  cacheVersion: 131859
+  cacheTime: 639148280735123430
+  SerializableEventsDict:
+  - key: event:/MemoriesCannedInForgetfulness
+    index: 0
+--- !u!114 &648608799203661292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639148266210979967
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
+--- !u!114 &8282749924547036397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639148266210999921
+  FileSizes:
+  - Name: Desktop
+    Value: 840
+  Exists: 1
