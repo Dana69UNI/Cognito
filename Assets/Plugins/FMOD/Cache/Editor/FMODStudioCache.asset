@@ -42,10 +42,30 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Musica+SFX Ambiental.bank
   Name: Musica+SFX Ambiental
   StudioPath: bank:/Musica+SFX Ambiental
-  lastModified: 639148280735123430
+  lastModified: 639150745232613309
   FileSizes:
   - Name: Desktop
-    Value: 887488
+    Value: 888576
+  Exists: 1
+--- !u!114 &-2144855209317962256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/ENEMIGOS.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/ENEMIGOS.bank
+  Name: ENEMIGOS
+  StudioPath: bank:/ENEMIGOS
+  lastModified: 639150041222525871
+  FileSizes:
+  - Name: Desktop
+    Value: 7712
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -63,18 +83,22 @@ MonoBehaviour:
   - {fileID: 8282749924547036397}
   - {fileID: 648608799203661292}
   - {fileID: -2313332785779283188}
+  - {fileID: -2144855209317962256}
   EditorEvents:
   - {fileID: -5938826806424407926}
+  - {fileID: 1064390028529938726}
   EditorParameters: []
   MasterBanks:
   - {fileID: 648608799203661292}
   StringsBanks:
   - {fileID: 8282749924547036397}
   cacheVersion: 131859
-  cacheTime: 639148280735123430
+  cacheTime: 639150745232613309
   SerializableEventsDict:
   - key: event:/MemoriesCannedInForgetfulness
     index: 0
+  - key: event:/TickSound
+    index: 1
 --- !u!114 &648608799203661292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,11 +114,38 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639148266210979967
+  lastModified: 639150040464100539
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &1064390028529938726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TickSound
+  m_EditorClassIdentifier: 
+  Path: event:/TickSound
+  Guid:
+    Data1: 490839066
+    Data2: 1297430719
+    Data3: -219030907
+    Data4: -710787951
+  Banks:
+  - {fileID: -2144855209317962256}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 250
 --- !u!114 &8282749924547036397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,8 +161,8 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639148266210999921
+  lastModified: 639150040464120486
   FileSizes:
   - Name: Desktop
-    Value: 840
+    Value: 994
   Exists: 1

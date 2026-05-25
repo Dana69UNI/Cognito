@@ -9,6 +9,7 @@ TagManager:
   - Destroyer
   - MiniWorldCamera
   - Water
+  - Headset
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Headset
   - Throwable
   - OBSTACULO
   - Cabeza

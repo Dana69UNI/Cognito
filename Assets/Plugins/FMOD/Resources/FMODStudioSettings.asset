@@ -260,6 +260,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - ENEMIGOS
   - Musica+SFX Ambiental
   BanksToLoad: []
   LiveUpdatePort: 9264
