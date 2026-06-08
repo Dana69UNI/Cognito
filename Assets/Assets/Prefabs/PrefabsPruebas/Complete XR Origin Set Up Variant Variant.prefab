@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.117
       objectReference: {fileID: 0}
+    - target: {fileID: 778703201560425522, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1351904833967977961, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
       propertyPath: m_Name
       value: Complete XR Origin Set Up Variant Variant
@@ -856,6 +860,10 @@ PrefabInstance:
       propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_LocomotionProvider
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3440538403053028797, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
+      propertyPath: m_ConeCastAngle
+      value: 15.44
+      objectReference: {fileID: 0}
     - target: {fileID: 4419366028529473912, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
       propertyPath: m_CastRadius
       value: 0.4
@@ -864,9 +872,17 @@ PrefabInstance:
       propertyPath: m_ProvidersToDisable.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5669960235704638242, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
+      propertyPath: m_ConeCastAngle
+      value: 15.44
+      objectReference: {fileID: 0}
     - target: {fileID: 6648505217950058471, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
       propertyPath: m_CastRadius
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772654226419018413, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8348664556141998313, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
       propertyPath: m_HoverEnteredData.m_Duration

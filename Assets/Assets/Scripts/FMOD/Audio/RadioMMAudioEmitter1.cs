@@ -10,7 +10,7 @@ public class RadioMMAudioEmitter1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Musica = AudioManager.instance.CreateEventInstanceObj(FMODEvents.instance.MemoriesCannedInForgetfulness, gameObject.transform);
+        Musica = AudioManager.instance.CreateEventInstanceObj(FMODEvents.instance.TheInsideOfATroubledMind, gameObject.transform);
         Musica.start();
     }
     void Update()

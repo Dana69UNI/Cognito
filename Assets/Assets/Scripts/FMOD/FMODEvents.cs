@@ -12,6 +12,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("MemoriesCannedInForgetfulness")]
     [field: SerializeField] public EventReference MemoriesCannedInForgetfulness { get; private set; }
 
+    [field: Header("TheInsideOfATroubledMind")]
+    [field: SerializeField] public EventReference TheInsideOfATroubledMind { get; private set; }
+
     [field: Header("TickSound")]
     [field: SerializeField] public EventReference TickSound { get; private set; }
 
