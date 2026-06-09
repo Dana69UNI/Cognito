@@ -50,6 +50,7 @@ public class AudioManager : MonoBehaviour
     {
 
         InitializeMusic(FMODEvents.instance.music);
+
     }
 
     private void Update()
