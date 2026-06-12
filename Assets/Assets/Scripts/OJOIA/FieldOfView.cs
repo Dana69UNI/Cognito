@@ -16,7 +16,7 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask throwMask;
     public LayerMask obstacleMask;
-
+    public Transform posicionInicialDeseada;
     public bool canSeePlayer;
     public bool sawThrow;
     public Vector3 sourceGuess;
@@ -25,10 +25,21 @@ public class FieldOfView : MonoBehaviour
     public float maxBacktrack = 15f;
     public float detectionTimer = 0f;
     public float timeToDetect = 1.0f;
-    
+
+    void Awake()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.enabled = false;
+
+        // Forzamos la posición inicial de diseño
+        transform.position = posicionInicialDeseada.position;
+
+        agent.enabled = true;
+    }
 
     private void Start()
     {
+
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }

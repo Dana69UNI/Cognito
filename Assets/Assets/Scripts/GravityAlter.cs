@@ -7,6 +7,7 @@ public class GravityAlter : MonoBehaviour
     private Vector3 gravityVector;
     private Vector3 normalObjeto;
     private float gravityMag;
+    private float teleportOffset = 0.1f;
 
     public float groundedForceMultiplier = 0.2f;
     public float velocityThreshold = 0.05f;
@@ -15,7 +16,7 @@ public class GravityAlter : MonoBehaviour
     {
         normalObjeto = this.gameObject.GetComponentInParent<Transform>().up;
         gravityMag = Physics.gravity.magnitude;
-        gravityVector = -normalObjeto * gravityMag;
+        gravityVector = normalObjeto * gravityMag;
     }
 
     private void OnTriggerStay(Collider other)
@@ -40,6 +41,7 @@ public class GravityAlter : MonoBehaviour
                 gravityInteractable.customUpDirection = normalObjeto;
             }
         }
+    
     }
 
     private void OnTriggerExit(Collider other)
@@ -56,5 +58,16 @@ public class GravityAlter : MonoBehaviour
                 alyx.customGravityMagnitude = Physics.gravity.magnitude;
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            other.transform.position += other.transform.up * teleportOffset;
+            Quaternion targetRotation = Quaternion.FromToRotation(other.transform.up, -normalObjeto) * other.transform.rotation;
+            other.transform.rotation = targetRotation;
+        }
+       
     }
 }

@@ -19,11 +19,13 @@ public class AlyxGrabInteractable : XRGrabInteractable
     private Vector3 previousPos;
     private bool canJump = false;
     private Rigidbody rbInteractable;
+    private hoverChangeShaderMat canviEstatica;
 
     protected override void Awake()
     {
         base.Awake();
         rbInteractable = GetComponent<Rigidbody>();
+        canviEstatica = GetComponent<hoverChangeShaderMat>();
     }
 
     /// <summary>
@@ -76,6 +78,7 @@ public class AlyxGrabInteractable : XRGrabInteractable
         canJump = false;
     }
 
+    
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         rbInteractable.WakeUp();
@@ -148,5 +151,28 @@ public class AlyxGrabInteractable : XRGrabInteractable
         float speed = Mathf.Sqrt(speedSq);
         Vector3 velocity = diffPlanar.normalized * speed * Mathf.Cos(angleRad) + currentUp * speed * Mathf.Sin(angleRad);
         return Vector3.ClampMagnitude(velocity, 25f);
+    }
+
+    protected override void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        base.OnHoverEntered(args);
+
+       
+        if (args.interactorObject is NearFarInteractor)
+        {
+            canviEstatica.changeShader();
+
+        }
+        else
+        {
+           
+        }
+    }
+
+    protected override void OnHoverExited(HoverExitEventArgs args)
+    {
+        base.OnHoverExited(args);
+        canviEstatica.returnShader();
+        
     }
 }

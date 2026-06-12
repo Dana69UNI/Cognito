@@ -11,10 +11,15 @@ public class RadioAudioEmitter : MonoBehaviour
     void Start()
     {
         Musica = AudioManager.instance.CreateEventInstanceObj(FMODEvents.instance.MemoriesCannedInForgetfulness, gameObject.transform);
-        Musica.start();
+        
     }
     void Update()
     {
         Musica.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
+    }
+
+    public void StartMusic()
+    {
+        Musica.start();
     }
 }
