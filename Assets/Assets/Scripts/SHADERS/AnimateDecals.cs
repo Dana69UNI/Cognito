@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +8,22 @@ public class AnimateDecals : MonoBehaviour
 {
     public Material ullsOberts;
     public Material ullsTancats;
-
+   
     private DecalProjector decalProjector;
 
-    private void Start()
+    private void awake()
     {
         decalProjector = GetComponent<DecalProjector>();
         StartCoroutine(parpadeoDecals());
+        
+        
     }
 
     IEnumerator parpadeoDecals()
     {
         while (true)
         {
+           
             decalProjector.material = ullsTancats;
             yield return new WaitForSeconds(0.07f);
             decalProjector.material = ullsOberts;

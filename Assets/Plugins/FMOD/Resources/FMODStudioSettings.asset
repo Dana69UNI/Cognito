@@ -260,8 +260,10 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Enemic
   - ENEMIGOS
   - Musica+SFX Ambiental
+  - PROPS
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

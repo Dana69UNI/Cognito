@@ -15,8 +15,40 @@ public class FMODEvents : MonoBehaviour
     [field: Header("TheInsideOfATroubledMind")]
     [field: SerializeField] public EventReference TheInsideOfATroubledMind { get; private set; }
 
+
     [field: Header("TickSound")]
     [field: SerializeField] public EventReference TickSound { get; private set; }
+
+    [field: Header("Ambience")]
+    [field: SerializeField] public EventReference Ambience { get; private set; }
+
+    [field: Header("Tv")]
+    [field: SerializeField] public EventReference Tv { get; private set; }
+
+    [field: Header("SonidoMadera")]
+    [field: SerializeField] public EventReference SonidoMadera { get; private set; }
+
+    [field: Header("SonidoPlastico")]
+    [field: SerializeField] public EventReference SonidoPlastico { get; private set; }
+
+    [field: Header("SonidoBotellin")]
+    [field: SerializeField] public EventReference SonidoBotellin { get; private set; }
+
+    [field: Header("SonidoLibro")]
+    [field: SerializeField] public EventReference SonidoLibro { get; private set; }
+
+    [field: Header("UllAlerta")]
+    [field: SerializeField] public EventReference UllAlerta { get; private set; }
+
+    [field: Header("UllIdle")]
+    [field: SerializeField] public EventReference UllIdle { get; private set; }
+
+    [field: Header("UllAttack")]
+    [field: SerializeField] public EventReference UllAttack { get; private set; }
+
+    [field: Header("ominousEyes")]
+    [field: SerializeField] public EventReference OminousEyes { get; private set; }
+
 
     public static FMODEvents instance { get; private set; }
 

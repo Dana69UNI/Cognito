@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0752ac51-6413-481a-a87a-8c475f8781ab}">
+		<property name="assetPath">
+			<value>SONIDOMADERA3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8c0bf5d5-b918-4039-838b-3eb6aef3ea4d}</destination>
+		</relationship>
+	</object>
+</objects>

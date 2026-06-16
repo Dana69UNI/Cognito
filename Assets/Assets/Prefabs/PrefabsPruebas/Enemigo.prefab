@@ -115,6 +115,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 33554432
+  posicionInicialDeseada: {fileID: 0}
   canSeePlayer: 0
   sawThrow: 0
   sourceGuess: {x: 0, y: 0, z: 0}

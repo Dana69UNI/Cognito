@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6427752681526438085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UllIdleSound
+  m_EditorClassIdentifier: 
+  Path: event:/UllIdleSound
+  Guid:
+    Data1: -1670336062
+    Data2: 1271459954
+    Data3: -583656033
+    Data4: 1446945309
+  Banks:
+  - {fileID: 3145212773091257025}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 18000
+--- !u!114 &-6401115801302450044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoLibro
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoLibro
+  Guid:
+    Data1: -1403038532
+    Data2: 1266815334
+    Data3: 1422860724
+    Data4: -1749350231
+  Banks:
+  - {fileID: 5688724863000912670}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &-5938826806424407926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +81,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 2.4
   Length: 77000
+--- !u!114 &-4631831605265235018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBotellin
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBotellin
+  Guid:
+    Data1: 593011247
+    Data2: 1081424262
+    Data3: 638465193
+    Data4: 1431702028
+  Banks:
+  - {fileID: 5688724863000912670}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-3864285069818473579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UllAlert
+  m_EditorClassIdentifier: 
+  Path: event:/UllAlert
+  Guid:
+    Data1: -1665135150
+    Data2: 1243532578
+    Data3: 15724674
+    Data4: -332058818
+  Banks:
+  - {fileID: 3145212773091257025}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-3518936192058988855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +162,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 60000
+--- !u!114 &-2956736375940950325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UllSawyou
+  m_EditorClassIdentifier: 
+  Path: event:/UllSawyou
+  Guid:
+    Data1: -2010410449
+    Data2: 1301716241
+    Data3: -1097749326
+    Data4: -800470881
+  Banks:
+  - {fileID: 3145212773091257025}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
 --- !u!114 &-2313332785779283188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,10 +204,10 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Musica+SFX Ambiental.bank
   Name: Musica+SFX Ambiental
   StudioPath: bank:/Musica+SFX Ambiental
-  lastModified: 639168762702334495
+  lastModified: 639172523919599795
   FileSizes:
   - Name: Desktop
-    Value: 1536128
+    Value: 2596896
   Exists: 1
 --- !u!114 &-2144855209317962256
 MonoBehaviour:
@@ -89,7 +224,7 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/ENEMIGOS.bank
   Name: ENEMIGOS
   StudioPath: bank:/ENEMIGOS
-  lastModified: 639150041222525871
+  lastModified: 639172418026582342
   FileSizes:
   - Name: Desktop
     Value: 7712
@@ -111,17 +246,29 @@ MonoBehaviour:
   - {fileID: 648608799203661292}
   - {fileID: -2313332785779283188}
   - {fileID: -2144855209317962256}
+  - {fileID: 5688724863000912670}
+  - {fileID: 3145212773091257025}
   EditorEvents:
   - {fileID: -5938826806424407926}
   - {fileID: 1064390028529938726}
   - {fileID: -3518936192058988855}
+  - {fileID: -4631831605265235018}
+  - {fileID: 1087813819064258921}
+  - {fileID: 1341406762556567830}
+  - {fileID: -6401115801302450044}
+  - {fileID: 1025589745460972212}
+  - {fileID: 1754209215867623959}
+  - {fileID: -2956736375940950325}
+  - {fileID: -6427752681526438085}
+  - {fileID: -3864285069818473579}
+  - {fileID: 5468386848272195935}
   EditorParameters: []
   MasterBanks:
   - {fileID: 648608799203661292}
   StringsBanks:
   - {fileID: 8282749924547036397}
   cacheVersion: 131859
-  cacheTime: 639168762702334495
+  cacheTime: 639172523919599795
   SerializableEventsDict:
   - key: event:/MemoriesCannedInForgetfulness
     index: 0
@@ -129,6 +276,26 @@ MonoBehaviour:
     index: 1
   - key: event:/TheInsideOfATroubledMind
     index: 2
+  - key: event:/SonidoBotellin
+    index: 3
+  - key: event:/SonidoPlastico
+    index: 4
+  - key: event:/SonidoMadera
+    index: 5
+  - key: event:/SonidoLibro
+    index: 6
+  - key: event:/Ambiente
+    index: 7
+  - key: event:/TVIDLE
+    index: 8
+  - key: event:/UllSawyou
+    index: 9
+  - key: event:/UllIdleSound
+    index: 10
+  - key: event:/UllAlert
+    index: 11
+  - key: event:/OMINOUSEYES
+    index: 12
 --- !u!114 &648608799203661292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,11 +311,38 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639161129678291718
+  lastModified: 639172523918561571
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &1025589745460972212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiente
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiente
+  Guid:
+    Data1: -1941805355
+    Data2: 1086244488
+    Data3: -612211302
+    Data4: 388244845
+  Banks:
+  - {fileID: -2313332785779283188}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 96000
 --- !u!114 &1064390028529938726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +370,154 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 250
+--- !u!114 &1087813819064258921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoPlastico
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoPlastico
+  Guid:
+    Data1: 827466064
+    Data2: 1167615045
+    Data3: -1379746663
+    Data4: 2036109936
+  Banks:
+  - {fileID: 5688724863000912670}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &1341406762556567830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoMadera
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoMadera
+  Guid:
+    Data1: 1354765465
+    Data2: 1158114295
+    Data3: -424788073
+    Data4: -1723913931
+  Banks:
+  - {fileID: 5688724863000912670}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &1754209215867623959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TVIDLE
+  m_EditorClassIdentifier: 
+  Path: event:/TVIDLE
+  Guid:
+    Data1: -560185298
+    Data2: 1262636450
+    Data3: -1126095946
+    Data4: 1416863011
+  Banks:
+  - {fileID: 5688724863000912670}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14000
+--- !u!114 &3145212773091257025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemic.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Enemic.bank
+  Name: Enemic
+  StudioPath: bank:/Enemic
+  lastModified: 639172468466415557
+  FileSizes:
+  - Name: Desktop
+    Value: 247040
+  Exists: 1
+--- !u!114 &5468386848272195935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/OMINOUSEYES
+  m_EditorClassIdentifier: 
+  Path: event:/OMINOUSEYES
+  Guid:
+    Data1: 1093087256
+    Data2: 1225596911
+    Data3: -1235768141
+    Data4: -1889210827
+  Banks:
+  - {fileID: -2313332785779283188}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 22000
+--- !u!114 &5688724863000912670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/PROPS.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/PROPS.bank
+  Name: PROPS
+  StudioPath: bank:/PROPS
+  lastModified: 639172471023572955
+  FileSizes:
+  - Name: Desktop
+    Value: 196736
+  Exists: 1
 --- !u!114 &8282749924547036397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,8 +533,8 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639161129678321641
+  lastModified: 639172523918591492
   FileSizes:
   - Name: Desktop
-    Value: 1060
+    Value: 1554
   Exists: 1

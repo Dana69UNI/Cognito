@@ -1,4 +1,5 @@
 using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class CountDown : MonoBehaviour
 {
     private EventInstance ticktick;
+ 
     private int timeCountdown = 30;
     public GameObject enemigo;
     public Transform[] Spawns;
@@ -16,6 +18,8 @@ public class CountDown : MonoBehaviour
     {
         StartCoroutine(contador());
         ticktick = AudioManager.instance.CreateEventInstanceObj(FMODEvents.instance.TickSound, gameObject.transform);
+        
+
     }
 
     private IEnumerator contador()

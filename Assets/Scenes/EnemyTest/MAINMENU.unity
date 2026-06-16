@@ -209,6 +209,69 @@ MonoBehaviour:
       Data3: -219030907
       Data4: -710787951
     Path: event:/TickSound
+  <Ambience>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Tv>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <SonidoMadera>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <SonidoPlastico>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <SonidoBotellin>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <SonidoLibro>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <UllAlerta>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <UllIdle>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <UllAttack>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &165856058
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3390ead460fe8e24391ed50b1fe6daf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
 --- !u!65 &165856060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -650,7 +714,8 @@ GameObject:
   - component: {fileID: 273454799}
   - component: {fileID: 273454798}
   - component: {fileID: 273454801}
-  - component: {fileID: 273454802}
+  - component: {fileID: 273454803}
+  - component: {fileID: 273454804}
   m_Layer: 0
   m_Name: VR
   m_TagString: Headset
@@ -774,7 +839,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &273454802
+--- !u!114 &273454803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273454796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc84d9a04f388b4390b03543be8c413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverShader: {fileID: 4800000, guid: 8a3eff0614a05a44bbd8aad170a74025, type: 3}
+--- !u!114 &273454804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -790,9 +868,9 @@ MonoBehaviour:
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
-  m_DistanceCalculationMode: 0
-  m_SelectMode: 1
-  m_FocusMode: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
   m_AllowGazeSelect: 0
@@ -848,7 +926,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -895,7 +973,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  m_FarAttachMode: 1
+  m_FarAttachMode: 0
 --- !u!1 &309089057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,7 +1617,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 4a51a6c4643af764b88a590b497025be, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -2583,8 +2661,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6433992, y: 0.34744486, z: 0.40548763}
-  m_Center: {x: 0.08315958, y: 0.018722428, z: -0.032743808}
+  m_Size: {x: 0.6585489, y: 0.5799936, z: 0.3419744}
+  m_Center: {x: 0.07558472, y: -0.097551994, z: -0.06450042}
 --- !u!1 &1951839231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 24b7564b35c06814b919113ca4a3e738, type: 3}

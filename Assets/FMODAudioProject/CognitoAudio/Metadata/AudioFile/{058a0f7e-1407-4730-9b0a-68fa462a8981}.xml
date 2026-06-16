@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{058a0f7e-1407-4730-9b0a-68fa462a8981}">
+		<property name="assetPath">
+			<value>SONIDOCARTONLIBRO.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8c0bf5d5-b918-4039-838b-3eb6aef3ea4d}</destination>
+		</relationship>
+	</object>
+</objects>
