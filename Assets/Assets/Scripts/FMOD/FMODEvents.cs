@@ -49,6 +49,11 @@ public class FMODEvents : MonoBehaviour
     [field: Header("ominousEyes")]
     [field: SerializeField] public EventReference OminousEyes { get; private set; }
 
+    [field: Header("eyeSpawn")]
+    [field: SerializeField] public EventReference eyeSpawn { get; private set; }
+
+    [field: Header("eyemort")]
+    [field: SerializeField] public EventReference eyemort { get; private set; }
 
     public static FMODEvents instance { get; private set; }
 

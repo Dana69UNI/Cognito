@@ -2297,6 +2297,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 20895585}
   respawn: {fileID: 2072283319}
+--- !u!114 &97279764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20895585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3293645afb7014546884ff8c6905c34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 8013715387484734160, guid: 2cfb31b62efd9f444aba6aea2cd25314, type: 3}
+  minX: -2
+  maxX: 2
+  minY: 0
+  maxY: 2
+  minZ: -2
+  maxZ: 2
+  spawnChance: 130
 --- !u!1 &101474421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3121,20 @@ MonoBehaviour:
       Data3: -1235768141
       Data4: -1889210827
     Path: event:/OMINOUSEYES
+  <eyeSpawn>k__BackingField:
+    Guid:
+      Data1: -1481584489
+      Data2: 1155487351
+      Data3: -302469475
+      Data4: 1744513138
+    Path: event:/UllSpawn
+  <eyemort>k__BackingField:
+    Guid:
+      Data1: -528087928
+      Data2: 1086137776
+      Data3: -711134031
+      Data4: 403760556
+    Path: event:/UllMort
 --- !u!1001 &135220478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45151,6 +45185,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4908752006466961471, guid: 10f0a2a97d69858438ac96c50e342b6b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 97279762}
+    - targetCorrespondingSourceObject: {fileID: 4908752006466961471, guid: 10f0a2a97d69858438ac96c50e342b6b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 97279764}
     - targetCorrespondingSourceObject: {fileID: 4333590822746330513, guid: 10f0a2a97d69858438ac96c50e342b6b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2036902597}

@@ -204,10 +204,10 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Musica+SFX Ambiental.bank
   Name: Musica+SFX Ambiental
   StudioPath: bank:/Musica+SFX Ambiental
-  lastModified: 639172523919599795
+  lastModified: 639174270441088993
   FileSizes:
   - Name: Desktop
-    Value: 2596896
+    Value: 2771040
   Exists: 1
 --- !u!114 &-2144855209317962256
 MonoBehaviour:
@@ -224,11 +224,38 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/ENEMIGOS.bank
   Name: ENEMIGOS
   StudioPath: bank:/ENEMIGOS
-  lastModified: 639172418026582342
+  lastModified: 639174270356601455
   FileSizes:
   - Name: Desktop
     Value: 7712
   Exists: 1
+--- !u!114 &-94893166352099388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UllSpawn
+  m_EditorClassIdentifier: 
+  Path: event:/UllSpawn
+  Guid:
+    Data1: -1481584489
+    Data2: 1155487351
+    Data3: -302469475
+    Data4: 1744513138
+  Banks:
+  - {fileID: -2313332785779283188}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,13 +289,15 @@ MonoBehaviour:
   - {fileID: -6427752681526438085}
   - {fileID: -3864285069818473579}
   - {fileID: 5468386848272195935}
+  - {fileID: 8847085675625164754}
+  - {fileID: -94893166352099388}
   EditorParameters: []
   MasterBanks:
   - {fileID: 648608799203661292}
   StringsBanks:
   - {fileID: 8282749924547036397}
   cacheVersion: 131859
-  cacheTime: 639172523919599795
+  cacheTime: 639174270441088993
   SerializableEventsDict:
   - key: event:/MemoriesCannedInForgetfulness
     index: 0
@@ -296,6 +325,10 @@ MonoBehaviour:
     index: 11
   - key: event:/OMINOUSEYES
     index: 12
+  - key: event:/UllMort
+    index: 13
+  - key: event:/UllSpawn
+    index: 14
 --- !u!114 &648608799203661292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +344,7 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639172523918561571
+  lastModified: 639174270440735717
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -466,7 +499,7 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Enemic.bank
   Name: Enemic
   StudioPath: bank:/Enemic
-  lastModified: 639172468466415557
+  lastModified: 639174270356150738
   FileSizes:
   - Name: Desktop
     Value: 247040
@@ -513,7 +546,7 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/PROPS.bank
   Name: PROPS
   StudioPath: bank:/PROPS
-  lastModified: 639172471023572955
+  lastModified: 639174270375425175
   FileSizes:
   - Name: Desktop
     Value: 196736
@@ -533,8 +566,35 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639172523918591492
+  lastModified: 639174270440755648
   FileSizes:
   - Name: Desktop
-    Value: 1554
+    Value: 1636
   Exists: 1
+--- !u!114 &8847085675625164754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UllMort
+  m_EditorClassIdentifier: 
+  Path: event:/UllMort
+  Guid:
+    Data1: -528087928
+    Data2: 1086137776
+    Data3: -711134031
+    Data4: 403760556
+  Banks:
+  - {fileID: -2313332785779283188}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
