@@ -9,7 +9,7 @@ public class ToggleOff : MonoBehaviour
     public Light luzDireccionalPrincipal;
 
     [Header("Configuración de Tiempo")]
-    public float tiempoTotal = 33f; // Segundos exactos
+    public float tiempoTotal = 33.8f; // Segundos exactos
     public string nombreSiguienteEscena;
 
     // Variables para almacenar el estado inicial
