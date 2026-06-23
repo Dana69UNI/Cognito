@@ -81,6 +81,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 2.4
   Length: 77000
+--- !u!114 &-5780377765273194022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FINAL
+  m_EditorClassIdentifier: 
+  Path: event:/FINAL
+  Guid:
+    Data1: -1204008949
+    Data2: 1260866596
+    Data3: 1201158563
+    Data4: -1910741737
+  Banks:
+  - {fileID: -2313332785779283188}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 50000
 --- !u!114 &-4631831605265235018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,10 +231,10 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Musica+SFX Ambiental.bank
   Name: Musica+SFX Ambiental
   StudioPath: bank:/Musica+SFX Ambiental
-  lastModified: 639174270441088993
+  lastModified: 639177775763570912
   FileSizes:
   - Name: Desktop
-    Value: 2771040
+    Value: 3372896
   Exists: 1
 --- !u!114 &-2144855209317962256
 MonoBehaviour:
@@ -291,13 +318,14 @@ MonoBehaviour:
   - {fileID: 5468386848272195935}
   - {fileID: 8847085675625164754}
   - {fileID: -94893166352099388}
+  - {fileID: -5780377765273194022}
   EditorParameters: []
   MasterBanks:
   - {fileID: 648608799203661292}
   StringsBanks:
   - {fileID: 8282749924547036397}
   cacheVersion: 131859
-  cacheTime: 639174270441088993
+  cacheTime: 639177775763570912
   SerializableEventsDict:
   - key: event:/MemoriesCannedInForgetfulness
     index: 0
@@ -329,6 +357,8 @@ MonoBehaviour:
     index: 13
   - key: event:/UllSpawn
     index: 14
+  - key: event:/FINAL
+    index: 15
 --- !u!114 &648608799203661292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +374,7 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174270440735717
+  lastModified: 639177770661087908
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -566,10 +596,10 @@ MonoBehaviour:
   Path: Assets/FMODAudioProject/CognitoAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174270440755648
+  lastModified: 639177770661113435
   FileSizes:
   - Name: Desktop
-    Value: 1636
+    Value: 1672
   Exists: 1
 --- !u!114 &8847085675625164754
 MonoBehaviour:

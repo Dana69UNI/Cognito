@@ -7,6 +7,7 @@ public class ChangeFog : MonoBehaviour
 {
     public RadioAudioEmitter emitter;
     private EventInstance ambient;
+    public EyeSpawner spawner;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class ChangeFog : MonoBehaviour
             //RenderSettings.fogEndDistance = 31;
             ambient.stop(STOP_MODE.ALLOWFADEOUT);
             emitter.StartMusic();
+            spawner.canSpawn = false;
         }
     }
 }

@@ -55,6 +55,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("eyemort")]
     [field: SerializeField] public EventReference eyemort { get; private set; }
 
+    [field: Header("fin")]
+    [field: SerializeField] public EventReference fin { get; private set; }
+
     public static FMODEvents instance { get; private set; }
 
     private void Awake()

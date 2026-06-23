@@ -16,6 +16,7 @@ public class EyeSpawner : MonoBehaviour
     public float minZ = -5f;
     public float maxZ = 5f;
 
+    public bool canSpawn = true;
 
     [Header("Zona Muerta (Distancia Mínima)")]
     [Tooltip("El objeto NO podrá spawnear más cerca de esta distancia en X y Z.")]
@@ -36,7 +37,7 @@ public class EyeSpawner : MonoBehaviour
 
     private IEnumerator TrySpawn()
     {
-        while (true)
+        while (canSpawn)
         {
             if (prefabToSpawn == null)
             {
