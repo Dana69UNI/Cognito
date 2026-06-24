@@ -12,6 +12,7 @@ public class ToggleOff : MonoBehaviour
     public float tiempoTotal = 33.8f; // Segundos exactos
     public string nombreSiguienteEscena;
 
+    private bool comenzo = false;
     // Variables para almacenar el estado inicial
     private float intensidadOriginalLuz;
     private Color colorAmbienteOriginal;
@@ -37,7 +38,10 @@ public class ToggleOff : MonoBehaviour
 
     public void empezarFinal()
     {
-        StartCoroutine(SecuenciaOscurecerYCambiar());
+        if (!comenzo)
+        {
+            StartCoroutine(SecuenciaOscurecerYCambiar());
+        }
     }
     IEnumerator SecuenciaOscurecerYCambiar()
     {
